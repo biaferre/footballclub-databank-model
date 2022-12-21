@@ -1,9 +1,12 @@
-<mxfile host="app.diagrams.net" modified="2022-12-21T18:46:30.158Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15" etag="gpC1XLYlTjPVEXL7MZCZ" version="20.7.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-12-21T20:20:11.460Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15" etag="NZdrvd5-DExZHrjWPOWo" version="20.7.3" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="2708" dy="1366" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="2920" dy="1518" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="nBhm9qrBOVUtakQsjSAV-140" value="Partida&lt;br&gt;(ENTIDADE FRACA)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#990000;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="940" y="1546" width="183" height="106" as="geometry" />
+        </mxCell>
         <mxCell id="nBhm9qrBOVUtakQsjSAV-18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nBhm9qrBOVUtakQsjSAV-1" target="nBhm9qrBOVUtakQsjSAV-4">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
@@ -416,7 +419,7 @@
         <mxCell id="nBhm9qrBOVUtakQsjSAV-138" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=24;fillColor=#FFB570;" edge="1" parent="1" source="nBhm9qrBOVUtakQsjSAV-96" target="nBhm9qrBOVUtakQsjSAV-133">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="nBhm9qrBOVUtakQsjSAV-96" value="Partida&lt;br&gt;(ENTIDADE FRACA)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#990000;strokeColor=#660000;" vertex="1" parent="1">
+        <mxCell id="nBhm9qrBOVUtakQsjSAV-96" value="Partida&lt;br&gt;(ENTIDADE FRACA)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#990000;strokeColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="949" y="1557" width="157" height="84" as="geometry" />
         </mxCell>
         <mxCell id="nBhm9qrBOVUtakQsjSAV-97" value="Participar" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB570;rounded=1;" vertex="1" parent="1">
