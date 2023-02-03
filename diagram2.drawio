@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-02-03T00:06:53.979Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" etag="FjHwZR4tkylZXVLy_ZTV" version="20.8.16" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-03T01:24:58.440Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" etag="aLW6CH8vbVVrQF7ZhtnR" version="20.8.16" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="1728" dy="495" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1892" dy="582" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -102,6 +102,13 @@
         <mxCell id="nBhm9qrBOVUtakQsjSAV-112" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=24;rounded=1;" parent="nBhm9qrBOVUtakQsjSAV-111" vertex="1" connectable="0">
           <mxGeometry x="0.3042" y="4" relative="1" as="geometry">
             <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OqBrJJ7zVb7oXpgQfmvQ-5" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;rounded=1;" edge="1" parent="1" source="nBhm9qrBOVUtakQsjSAV-22" target="OqBrJJ7zVb7oXpgQfmvQ-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="582" y="1293" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="nBhm9qrBOVUtakQsjSAV-22" value="Time" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EA6B66;" parent="1" vertex="1">
@@ -408,9 +415,6 @@
         <mxCell id="nBhm9qrBOVUtakQsjSAV-137" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=24;fillColor=#FFB570;" parent="1" source="nBhm9qrBOVUtakQsjSAV-96" target="nBhm9qrBOVUtakQsjSAV-132" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="nBhm9qrBOVUtakQsjSAV-138" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontSize=24;fillColor=#FFB570;" parent="1" source="nBhm9qrBOVUtakQsjSAV-96" target="nBhm9qrBOVUtakQsjSAV-133" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="nBhm9qrBOVUtakQsjSAV-96" value="Partida" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EA6B66;strokeColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="953" y="1557" width="157" height="84" as="geometry" />
         </mxCell>
@@ -468,9 +472,6 @@
         </mxCell>
         <mxCell id="nBhm9qrBOVUtakQsjSAV-132" value="Adversário" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7EA6E0;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1022" y="1669" width="80" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="nBhm9qrBOVUtakQsjSAV-133" value="Liga" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7EA6E0;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="1129" y="1667" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="nBhm9qrBOVUtakQsjSAV-134" value="Vencedor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#7EA6E0;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="730" y="1663" width="80" height="80" as="geometry" />
@@ -572,6 +573,9 @@
             </Array>
             <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="OqBrJJ7zVb7oXpgQfmvQ-4" value="Liga" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;fillColor=#7EA6E0;" vertex="1" parent="1">
+          <mxGeometry x="385" y="1268" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
