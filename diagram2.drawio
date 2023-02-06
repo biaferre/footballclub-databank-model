@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-02-03T01:24:58.440Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" etag="aLW6CH8vbVVrQF7ZhtnR" version="20.8.16" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-06T23:37:41.874Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" etag="2lBBztV67J-_MrymMybW" version="20.8.16" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="1892" dy="582" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="2560" dy="990" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -104,7 +104,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="OqBrJJ7zVb7oXpgQfmvQ-5" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;rounded=1;" edge="1" parent="1" source="nBhm9qrBOVUtakQsjSAV-22" target="OqBrJJ7zVb7oXpgQfmvQ-4">
+        <mxCell id="OqBrJJ7zVb7oXpgQfmvQ-5" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;rounded=1;" parent="1" source="nBhm9qrBOVUtakQsjSAV-22" target="OqBrJJ7zVb7oXpgQfmvQ-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="582" y="1293" />
@@ -574,8 +574,39 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="OqBrJJ7zVb7oXpgQfmvQ-4" value="Liga" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;fillColor=#7EA6E0;" vertex="1" parent="1">
+        <mxCell id="OqBrJJ7zVb7oXpgQfmvQ-4" value="Liga" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#000000;fillColor=#7EA6E0;" parent="1" vertex="1">
           <mxGeometry x="385" y="1268" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0ggSL7rZgndwZ6UotIgw-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" target="nBhm9qrBOVUtakQsjSAV-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="45" y="1493.294117647059" as="targetPoint" />
+            <mxPoint x="-644" y="1387" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-644" y="1354" />
+              <mxPoint x="-644" y="1492" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0ggSL7rZgndwZ6UotIgw-6" value="Possui&amp;nbsp;&lt;br style=&quot;font-size: 16px;&quot;&gt;1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" vertex="1" connectable="0" parent="0ggSL7rZgndwZ6UotIgw-3">
+          <mxGeometry x="0.0476" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0ggSL7rZgndwZ6UotIgw-5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="0ggSL7rZgndwZ6UotIgw-2" target="nBhm9qrBOVUtakQsjSAV-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-644" y="777" />
+              <mxPoint x="-363" y="777" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0ggSL7rZgndwZ6UotIgw-7" value="Pertence&lt;br&gt;N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" vertex="1" connectable="0" parent="0ggSL7rZgndwZ6UotIgw-5">
+          <mxGeometry x="-0.5374" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0ggSL7rZgndwZ6UotIgw-2" value="Possui" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fillStyle=auto;rounded=1;fillColor=#FFB570;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="-704" y="1324" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
