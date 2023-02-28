@@ -79,6 +79,46 @@ CREATE TABLE Jogador (
   CONSTRAINT Jogador_fkey1 FOREIGN KEY (Time) REFERENCES Time(Divisao)
 )
 
+CREATE TABLE Cliente (
+  CPF varchar(14) NOT NULL,
+  CONSTRAINT Cliente_pkey PRIMARY KEY (CPF),
+  CONSTRAINT Cliente_fkey FOREIGN KEY (CPF) REFERENCES Pessoa(CPF)
+)
+
+CREATE TABLE Loja (
+  ID varchar(2) NOT NULL, -- defini com 2 numeros pq clube nao tem mta loja
+  CEP varchar(9) NOT NULL,
+  Numero varchar(4) NOT NULL,
+  CONSTRAINT Loja_pkey PRIMARY KEY (ID),
+  CONSTRAINT Loja_fkey FOREIGN KEY (CEP) REFERENCES Endereco(CEP),
+  CONSTRAINT Loja_fkey1 FOREIGN KEY (Numero) REFERENCES Endereco(Numero)
+)
+
+CREATE TABLE Cliente_loja (
+  Data_venda varchar(8) NOT NULL, -- modelo dd/mm/yyyy
+  Produto varchar(255) NOT NULL,
+  ID varchar(2) NOT NULL,
+  CPF varchar(14) NOT NULL,
+  Codigo varchar(6) NOT NULL,
+  Forma_pagamento varchar(255) NOT NULL,
+  Preco number(3) NOT NULL,
+  CONSTRAINT Cliente_loja_primkey PRIMARY KEY (Data_venda),
+  CONSTRAINT Cliente_loja_primkey1 PRIMARY KEY (Produto),
+  CONSTRAINT Cliente_loja_primkey2 PRIMARY KEY (ID),
+  CONSTRAINT Cliente_loja_primkey3 PRIMARY KEY (CPF),
+  CONSTRAINT Cliente_loja_fkey FOREIGN KEY (ID) REFERENCES Loja(ID),
+  CONSTRAINT Cliente_loja_fkey1 FOREIGN KEY (CPF) REFERENCES Cliente(CPF),
+  CONSTRAINT Cliente_loja_fkey2 FOREIGN KEY (Codigo) REFERENCES Cupom(CODIGO)
+
+
+)
+
+CREATE TABLE Cupom (
+  Codigo varchar(6) NOT NULL, -- defini que vai ter 6 codigos como cupons da shopee, ifood etc
+  Desconto_porcentagem varchar(3) NOT NULL,
+  CONSTRAINT Cupom_pkey PRIMARY KEY (Codigo)
+)
+
 CREATE TABLE Funcionario (
   CPF varchar(14) NOT NULL,
   Supervisor varchar(14) NOT NULL,
