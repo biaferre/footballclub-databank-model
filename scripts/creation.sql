@@ -52,5 +52,41 @@ CREATE TABLE Partida (
   Adversario varchar(255) NOT NULL,
   Vencedor varchar(255) NOT NULL,
   CONSTRAINT Partida_pkey PRIMARY KEY (Time, Data_Part),
-  CONSTRAINT Estadio_fkey FOREIGN KEY (Time) REFERENCES Time (Divisao)
+  CONSTRAINT Partida_fkey FOREIGN KEY (Time) REFERENCES Time (Divisao)
 );
+
+CREATE TABLE Cargos (
+  Funcao varchar(255) NOT NULL,
+  Salario decimal(10,2) NOT NULL,
+  CONSTRAINT Cargos_pkey PRIMARY KEY (FUNCAO)
+)
+  
+CREATE TABLE Telefone (
+  Pessoa varchar(14) NOT NULL,
+  Num_Telefone number(11) NOT NULL,
+  CONSTRAINT Telefone_pkey PRIMARY KEY (Pessoa, Num_Telefone),
+  CONSTRAINT Telefone_fkey FOREIGN KEY (Pessoa) REFERENCES Pessoa (CPF)
+)
+  
+CREATE TABLE Jogador (
+  CPF varchar(14) NOT NULL,
+  Numero number(2) NOT NULL,
+  Posicao varchar(255) NOT NULL,
+  Time varchar(5) NOT NULL,
+  Escalacao varchar(3) NOT NULL,
+  CONSTRAINT Jogador_pkey PRIMARY KEY (CPF),
+  CONSTRAINT Jogador_fkey FOREIGN KEY (CPF) REFERENCES Pessoa(CPF), 
+  CONSTRAINT Jogador_fkey1 FOREIGN KEY (Time) REFERENCES Time(Divisao)
+)
+
+CREATE TABLE Funcionario (
+  CPF varchar(14) NOT NULL,
+  Supervisor varchar(14) NOT NULL,
+  CNPJ varchar(255) NOT NULL,
+  Cargo varchar(5) NOT NULL,
+  CONSTRAINT Funcionario_pkey PRIMARY KEY (CPF),
+  CONSTRAINT Funcionario_fkey FOREIGN KEY (CPF) REFERENCES Pessoa(CPF), 
+  CONSTRAINT Funcionario_fkey1 FOREIGN KEY (Supervisor) REFERENCES Funcionario(CPF), 
+  CONSTRAINT Funcionario_fkey2 FOREIGN KEY (CNPJ) REFERENCES Clube(CNPJ),
+  CONSTRAINT Funcionario_fkey3 FOREIGN KEY (Cargo) REFERENCES Cargos(Funcao)
+)
