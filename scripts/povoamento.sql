@@ -224,8 +224,10 @@ INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('006', 12345678901);
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('007', 23456789012);
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('008', 34567890123);
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('009', 45678901234);
+INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('009', 76548901234);
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('011', 56789012345);
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('019', 67890123456);
+INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('019', 67890432156);
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('021', 78901234567);
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('022', 89012345678);
 
