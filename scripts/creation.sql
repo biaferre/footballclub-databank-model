@@ -49,7 +49,7 @@ CREATE TABLE Estadio (
 CREATE TABLE Partida (
   Data_Partida DATE,
   Adversario VARCHAR2(255) NOT NULL,
-  Vencedor VARCHAR2(255) NOT NULL,
+  Resultado VARCHAR2(255) NOT NULL,
   CONSTRAINT Partida_pkey PRIMARY KEY (Data_Partida)
 );
 
@@ -81,7 +81,7 @@ CREATE TABLE Funcionario (
   CPF VARCHAR2(14),
   Supervisor VARCHAR2(14),
   CNPJ VARCHAR2(255) NOT NULL,
-  Cargo VARCHAR2(5) NOT NULL,
+  Cargo VARCHAR2(255) NOT NULL,
   CONSTRAINT Funcionario_pkey PRIMARY KEY (CPF),
   CONSTRAINT Funcionario_fkey FOREIGN KEY (CPF) REFERENCES Pessoa(CPF), 
   CONSTRAINT Funcionario_fkey1 FOREIGN KEY (Supervisor) REFERENCES Funcionario(CPF), 
