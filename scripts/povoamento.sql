@@ -145,6 +145,69 @@ VALUES (TO_DATE('18/02/2023', 'dd/mm/yy'), 'Manchester', 'Derrota');
 INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
 VALUES (TO_DATE('16/02/2023', 'dd/mm/yy'), 'Chelsea', 'Vitoria');
 
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('05/03/2023', 'dd/mm/yy'), 'Juventus', 'Vitoria');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('07/03/2023', 'dd/mm/yy'), 'Arsenal', 'Vitoria');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('13/03/2023', 'dd/mm/yy'), 'Santos', 'Derrota');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('18/03/2023', 'dd/mm/yy'), 'Flamengo', 'Derrota');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('20/03/2023', 'dd/mm/yy'), 'Palmeiras', 'Derrota');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('24/03/2023', 'dd/mm/yy'), 'Fluminense', 'Vitoria');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('26/03/2023', 'dd/mm/yy'), 'Corinthians', 'Vitoria');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('28/03/2023', 'dd/mm/yy'), 'Sport Popoti', 'Derrota');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('31/03/2023', 'dd/mm/yy'), 'Santinha', 'Vitoria');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('03/04/2023', 'dd/mm/yy'), 'Nautico', 'Vitoria');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('07/04/2023', 'dd/mm/yy'), 'Botafuego', 'Vitoria');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('09/04/2023', 'dd/mm/yy'), 'Milan', 'Derrota');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('11/04/2023', 'dd/mm/yy'), 'Boca Juniors', 'Derrota');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('15/04/2023', 'dd/mm/yy'), 'Ibis', 'Derrota');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('25/04/2023', 'dd/mm/yy'), 'Vasco', 'Vitoria');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('01/05/2023', 'dd/mm/yy'), 'Internacional', 'Derrota');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('05/05/2023', 'dd/mm/yy'), 'Cruzeiro', 'Vitoria');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('07/05/2023', 'dd/mm/yy'), 'Afeta o Grêmio', 'Derrota');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('14/05/2023', 'dd/mm/yy'), 'São Paulo', 'Derrota');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('19/05/2023', 'dd/mm/yy'), 'Benfica', 'Vitoria');
+
+INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
+VALUES (TO_DATE('28/05/2023', 'dd/mm/yy'), 'Ajax', 'Vitoria');
+
 
 -- Cargos
 INSERT INTO Cargos(Funcao, Salario) VALUES ('Tecnico', 15000.00);
