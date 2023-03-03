@@ -433,3 +433,17 @@ VALUES ('Sub13', 'Estadio Municipal', TO_DATE('19/11/2022', 'dd/mm/yy'));
 
 INSERT INTO Jogar(Equipe_Jogo, Nome_Estadio, Data_Jogo)
 VALUES ('Sub20', 'Arena do Povo', TO_DATE('28/11/2022', 'dd/mm/yy'));
+
+SELECT * FROM Pessoa;
+SELECT * FROM Jogador;
+SELECT * FROM Funcionario;
+SELECT * FROM Cliente;
+SELECT * FROM Clube;
+SELECT * FROM Equipe;
+SELECT * FROM Estadio;
+SELECT * FROM Partida;
+SELECT * FROM Jogar;
+SELECT * FROM Loja;
+SELECT * FROM Cupom;
+SELECT * FROM Cliente_Loja;
+
