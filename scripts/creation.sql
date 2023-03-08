@@ -91,7 +91,7 @@ CREATE TABLE Funcionario (
 
 CREATE TABLE Cliente (
   CPF VARCHAR2(14),
-  Fidelidade BOOLEAN,
+  Fidelidade NUMBER(1),
   CONSTRAINT Cliente_pkey PRIMARY KEY (CPF),
   CONSTRAINT Cliente_fkey FOREIGN KEY (CPF) REFERENCES Pessoa(CPF)
 );
@@ -100,14 +100,14 @@ CREATE TABLE Loja (
   CNPJ VARCHAR2(18), -- mudei para number para usarmos o create sequence
   CEP VARCHAR2(9) NOT NULL,
   Numero NUMBER(4) NOT NULL,
-  CONSTRAINT Loja_pkey PRIMARY KEY (ID),
+  CONSTRAINT Loja_pkey PRIMARY KEY (CNPJ),
   CONSTRAINT Loja_fkey FOREIGN KEY (Numero, CEP) REFERENCES Endereco (Numero, CEP)
 );
 
 CREATE TABLE Cupom (
   ID NUMBER, -- defini que vai ter 6 codigos como cupons da shopee, ifood etc
   Desconto_porcentagem NUMBER NOT NULL,
-  CONSTRAINT Cupom_pkey PRIMARY KEY (Codigo)
+  CONSTRAINT Cupom_pkey PRIMARY KEY (ID)
 );
 
 CREATE TABLE Cliente_loja (
@@ -115,10 +115,10 @@ CREATE TABLE Cliente_loja (
   Produto VARCHAR2(255),
   CNPJ_Loja VARCHAR2(18),
   CPF VARCHAR2(14),
-  ID_Cupom NUMBER,
-  Forma_pagamento VARCHAR2(255) NOT NULL,
+  ID_Cupom NUMBER, 
+  Forma_pagamento VARCHAR2(255) NOT NULL, 
   Preco NUMBER NOT NULL,
-  CONSTRAINT Cliente_loja_primkey PRIMARY KEY (Data_venda, Produto, ID, CPF),
+  CONSTRAINT Cliente_loja_primkey PRIMARY KEY (Data_venda, Produto, CNPJ_Loja, CPF),
   CONSTRAINT Cliente_loja_fkey FOREIGN KEY (CNPJ_Loja) REFERENCES Loja(CNPJ),
   CONSTRAINT Cliente_loja_fkey1 FOREIGN KEY (CPF) REFERENCES Cliente(CPF),
   CONSTRAINT Cliente_loja_fkey2 FOREIGN KEY (ID_Cupom) REFERENCES Cupom(ID)

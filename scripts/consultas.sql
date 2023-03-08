@@ -13,14 +13,13 @@ GROUP BY J.Equipe_Jogo;
 -- Retorne todos os cliente que já compraram na loja 2, retorne as informações da compra e ordene pelo nome
 SELECT P.Nome, CL.Data_Venda, CL.Produto, CL.Forma_pagamento, CL.Preco FROM Pessoa P
 INNER JOIN Cliente_Loja CL ON CL.CPF = P.CPF
-WHERE CL.ID = 2
+WHERE CL.CNPJ_Loja = 2
 ORDER BY P.Nome;
 
 -- Selecione os times que já jogaram no estádio com maior público
 SELECT DISTINCT J.Equipe_Jogo FROM Jogar J
 JOIN Estadio E ON J.Nome_Estadio = E.Nome
-WHERE E.Lotacao IN (SELECT MAX(Lotacao) FROM Estadio
-);
+WHERE E.Lotacao IN (SELECT MAX(Lotacao) FROM Estadio);
 
 -- Retorne a média de idade dos jogadores do clube
 SELECT AVG(Idade) FROM (
