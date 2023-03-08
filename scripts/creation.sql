@@ -91,6 +91,7 @@ CREATE TABLE Funcionario (
 
 CREATE TABLE Cliente (
   CPF VARCHAR2(14),
+  Fidelidade BOOLEAN,
   CONSTRAINT Cliente_pkey PRIMARY KEY (CPF),
   CONSTRAINT Cliente_fkey FOREIGN KEY (CPF) REFERENCES Pessoa(CPF)
 );
