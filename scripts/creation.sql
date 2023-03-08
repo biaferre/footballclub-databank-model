@@ -96,7 +96,7 @@ CREATE TABLE Cliente (
 );
 
 CREATE TABLE Loja (
-  ID NUMBER, -- mudei para number para usarmos o create sequence
+  CNPJ VARCHAR2(18), -- mudei para number para usarmos o create sequence
   CEP VARCHAR2(9) NOT NULL,
   Numero NUMBER(4) NOT NULL,
   CONSTRAINT Loja_pkey PRIMARY KEY (ID),
@@ -104,7 +104,7 @@ CREATE TABLE Loja (
 );
 
 CREATE TABLE Cupom (
-  Codigo VARCHAR2(6), -- defini que vai ter 6 codigos como cupons da shopee, ifood etc
+  ID NUMBER, -- defini que vai ter 6 codigos como cupons da shopee, ifood etc
   Desconto_porcentagem NUMBER NOT NULL,
   CONSTRAINT Cupom_pkey PRIMARY KEY (Codigo)
 );
@@ -112,15 +112,15 @@ CREATE TABLE Cupom (
 CREATE TABLE Cliente_loja (
   Data_venda DATE NOT NULL, -- modelo dd/mm/yyyy
   Produto VARCHAR2(255),
-  ID NUMBER,
+  CNPJ_Loja VARCHAR2(18),
   CPF VARCHAR2(14),
-  Codigo VARCHAR2(6),
+  ID_Cupom NUMBER,
   Forma_pagamento VARCHAR2(255) NOT NULL,
   Preco NUMBER NOT NULL,
   CONSTRAINT Cliente_loja_primkey PRIMARY KEY (Data_venda, Produto, ID, CPF),
-  CONSTRAINT Cliente_loja_fkey FOREIGN KEY (ID) REFERENCES Loja(ID),
+  CONSTRAINT Cliente_loja_fkey FOREIGN KEY (CNPJ_Loja) REFERENCES Loja(CNPJ),
   CONSTRAINT Cliente_loja_fkey1 FOREIGN KEY (CPF) REFERENCES Cliente(CPF),
-  CONSTRAINT Cliente_loja_fkey2 FOREIGN KEY (Codigo) REFERENCES Cupom(CODIGO)
+  CONSTRAINT Cliente_loja_fkey2 FOREIGN KEY (ID_Cupom) REFERENCES Cupom(ID)
 );
 
 -- precisa ver isso daqui em relação a tabela de partida pq tem o problema
