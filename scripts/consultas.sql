@@ -72,8 +72,29 @@ INNER JOIN Cliente C ON CL.CPF = C.CPF
 INNER JOIN Pessoa P ON P.CPF = C.CPF
 WHERE Cl.Preco BETWEEN (99.99) AND ((199.99));
 
+-- ALTER TABLE
+-- Adicionar um check para que um deconto seja, no máximo, de 100% 
+ALTER TABLE Cupom
+ADD CHECK (Desconto_porcentagem <= 100); 
 
+-- DELETE
+-- Um dos jogadores saiu do clube, então vamos tirá-lo da tabela 
+DELETE FROM Jogador
+WHERE (cpf = 022);
 
+-- IS NULL
+-- Seleciona o cpf dos funcionarios que não tem supervisor
+SELECT CPF
+FROM Funcionario
+WHERE Supervisor IS NULL;
 
+-- SUBCONSULTA COM ANY
+-- Lista cargos com salario maior que o de nutricionista
+SELECT Funcao, Salario FROM Cargos 
+WHERE Salario > ANY (SELECT Salario FROM Cargos WHERE Funcao = 'Nutricionista');
 
-
+-- CREATE VIEW
+-- Criar visualização de compras que foram realizados de maneira integral, onde nenhum cupom foi utilizado
+CREATE VIEW view_pagIntegral AS 
+SELECT * FROM Cliente_loja
+WHERE ID_Cupom IS NULL;

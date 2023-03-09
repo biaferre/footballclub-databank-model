@@ -89,7 +89,6 @@ VALUES ('03001-000', 3, 'Sao Paulo', 'Bras', 'Rua Barao de Ladario');
 INSERT INTO Endereco(CEP, Numero, Cidade, Bairro, Rua)
 VALUES ('04001-000', 4, 'Sao Paulo', 'Moema', 'Av. Ibirapuera');
 
-
 -- Clube
 INSERT INTO Clube(CNPJ, Nome_clube, Email, CEP, Num_endereco)
 VALUES ('12345678901234', 'Clube Clara', 'clara@email.com', '51030-400', 1);
@@ -107,7 +106,6 @@ VALUES ('Sub15', 'Feminino', 'Liga 3', '12345678901234');
 INSERT INTO Equipe(Divisao, Modalidade, Liga, CNPJ_Clube)
 VALUES ('Sub13', 'Masculino', 'Liga 4', '12345678901234');
 
-
 -- Estadio
 INSERT INTO Estadio(Nome, Numero, CEP, CNPJ_Clube, Aluguel, Lotacao) 
 VALUES ('Estadio Municipal', 2, '02001-000', '12345678901234', 10000.00, 50000);
@@ -117,8 +115,6 @@ VALUES ('Estadio Nacional', 3, '03001-000', '12345678901234', 15000.00, 75000);
 
 INSERT INTO Estadio(Nome, Numero, CEP, CNPJ_Clube, Aluguel, Lotacao) 
 VALUES ('Arena do Povo', 4, '04001-000', '12345678901234', 12000.00, 60000);
-
-
 
 -- Partida
 INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
@@ -208,7 +204,6 @@ VALUES (TO_DATE('19/11/2022', 'dd/mm/yy'), 'Benfica', 'Vitoria', 'Sub13', 'Estad
 INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
 VALUES (TO_DATE('28/11/2022', 'dd/mm/yy'), 'Ajax', 'Vitoria', 'Sub20', 'Arena do Povo');
 
-
 -- Cargos
 INSERT INTO Cargos(Funcao, Salario) VALUES ('Tecnico', 15000.00);
 INSERT INTO Cargos(Funcao, Salario) VALUES ('Preparador fisico', 8000.00);
@@ -217,7 +212,6 @@ INSERT INTO Cargos(Funcao, Salario) VALUES ('Massagista', 3000.00);
 INSERT INTO Cargos(Funcao, Salario) VALUES ('Psicologo', 5000.00);
 INSERT INTO Cargos(Funcao, Salario) VALUES ('Administrador', 20000.00);
 INSERT INTO Cargos(Funcao, Salario) VALUES ('Nutricionista', 5000.00);
-
 
 -- Telefone
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('006', 12345678901);
@@ -230,7 +224,6 @@ INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('019', 67890123456);
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('019', 67890432156);
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('021', 78901234567);
 INSERT INTO Telefone(Pessoa, Num_Telefone) VALUES ('022', 89012345678);
-
 
 -- Jogador
 -- obs : sub 20 e sub 15: feminino

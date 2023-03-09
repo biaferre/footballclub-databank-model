@@ -109,7 +109,7 @@ CREATE TABLE Loja (
 );
 
 CREATE TABLE Cupom (
-  ID NUMBER, -- defini que vai ter 6 codigos como cupons da shopee, ifood etc
+  ID NUMBER, 
   Desconto_porcentagem NUMBER NOT NULL,
   CONSTRAINT Cupom_pkey PRIMARY KEY (ID)
 );
