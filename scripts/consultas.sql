@@ -54,7 +54,7 @@ WHERE E.Aluguel = (SELECT E2.Aluguel FROM Estadio E2
                     INNER JOIN Endereco Ed ON E2.Numero = Ed.Numero AND E2.CEP = Ed.CEP
                     INNER JOIN Clube C ON E2.CNPJ_Clube = C.CNPJ
                     WHERE E2.Aluguel > 14000.00);
-SELECT E3.Aluguel, E3.Nome, Ed2.Rua, Ed2.Numero, C2.Nome_clube FROM Estadio E3
+SELECT E3.Aluguel, E3.Nome, Ed2.Rua, Ed2.Numero, C2.Nome_clube FROM Estadio E3, Endereco Ed2, Clube C2
 WHERE E3.Aluguel = (SELECT E4.Aluguel FROM Estadio E4
                     INNER JOIN Endereco Ed2 ON E4.Numero = Ed2.Numero AND E4.CEP = Ed2.CEP
                     INNER JOIN Clube C2 ON E4.CNPJ_Clube = C2.CNPJ
@@ -72,7 +72,7 @@ INNER JOIN Equipe E2 ON E2.Divisao = J2.Equipe_Jogador
 WHERE J2.Posicao = 'Lateral Direito'
 
 -- Mostre dados do cliente e compra de todas as compras entre 100 e 200 reais
-SELECT P.Nome, Cl.Fidelidade, Cl.Produto, Cl.Preco, Cl.Forma_pagamento FROM Cliente_Loja Cl
+SELECT P.Nome, C.Fidelidade, Cl.Produto, Cl.Preco, Cl.Forma_pagamento FROM Cliente_Loja Cl
 INNER JOIN Cliente C ON CL.CPF = C.CPF
 INNER JOIN Pessoa P ON P.CPF = C.CPF
 WHERE Cl.Preco BETWEEN (99.99) AND ((199.99));
