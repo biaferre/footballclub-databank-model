@@ -121,92 +121,92 @@ VALUES ('Arena do Povo', 4, '04001-000', '12345678901234', 12000.00, 60000);
 
 
 -- Partida
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('26/02/2023', 'dd/mm/yy'), 'Real Medeiros', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('26/02/2023', 'dd/mm/yy'), 'Real Medeiros', 'Derrota', 'Sub20', 'Estadio Municipal');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('28/02/2023', 'dd/mm/yy'), 'Barcelombra', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('28/02/2023', 'dd/mm/yy'), 'Barcelombra', 'Vitoria', 'Sub17', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('01/03/2023', 'dd/mm/yy'), 'Paris Santo Germano', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('01/03/2023', 'dd/mm/yy'), 'Paris Santo Germano', 'Vitoria', 'Sub15', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('24/02/2023', 'dd/mm/yy'), 'Bayer', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('24/02/2023', 'dd/mm/yy'), 'Bayer', 'Vitoria', 'Sub13', 'Arena do Povo');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('22/02/2023', 'dd/mm/yy'), 'Tottenham', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('22/02/2023', 'dd/mm/yy'), 'Tottenham', 'Derrota', 'Sub20', 'Estadio Municipal');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('20/02/2023', 'dd/mm/yy'), 'Liverpool', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('20/02/2023', 'dd/mm/yy'), 'Liverpool', 'Vitoria', 'Sub17', 'Arena do Povo');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('18/02/2023', 'dd/mm/yy'), 'Manchester', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('18/02/2023', 'dd/mm/yy'), 'Manchester', 'Derrota', 'Sub15', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('16/02/2023', 'dd/mm/yy'), 'Chelsea', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('16/02/2023', 'dd/mm/yy'), 'Chelsea', 'Vitoria', 'Sub15', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('05/01/2023', 'dd/mm/yy'), 'Juventus', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('05/01/2023', 'dd/mm/yy'), 'Juventus', 'Vitoria', 'Sub15', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('07/01/2023', 'dd/mm/yy'), 'Arsenal', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('07/01/2023', 'dd/mm/yy'), 'Arsenal', 'Vitoria', 'Sub15', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('13/01/2023', 'dd/mm/yy'), 'Santos', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('13/01/2023', 'dd/mm/yy'), 'Santos', 'Derrota', 'Sub13', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('18/01/2023', 'dd/mm/yy'), 'Flamengo', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('18/01/2023', 'dd/mm/yy'), 'Flamengo', 'Derrota', 'Sub20', 'Arena do Povo');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('20/01/2023', 'dd/mm/yy'), 'Palmeiras', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('20/01/2023', 'dd/mm/yy'), 'Palmeiras', 'Derrota', 'Sub13', 'Arena do Povo');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('24/01/2023', 'dd/mm/yy'), 'Fluminense', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('24/01/2023', 'dd/mm/yy'), 'Fluminense', 'Vitoria', 'Sub17', 'Estadio Municipal');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('26/01/2023', 'dd/mm/yy'), 'Corinthians', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('26/01/2023', 'dd/mm/yy'), 'Corinthians', 'Vitoria', 'Sub15', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('28/01/2023', 'dd/mm/yy'), 'Sport Popoti', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('28/01/2023', 'dd/mm/yy'), 'Sport Popoti', 'Derrota', 'Sub20', 'Arena do Povo');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('31/01/2023', 'dd/mm/yy'), 'Santinha', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('31/01/2023', 'dd/mm/yy'), 'Santinha', 'Vitoria', 'Sub13', 'Estadio Municipal');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('03/12/2022', 'dd/mm/yy'), 'Nautico', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('03/12/2022', 'dd/mm/yy'), 'Nautico', 'Vitoria', 'Sub15', 'Arena do Povo');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('07/12/2022', 'dd/mm/yy'), 'Botafuego', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('07/12/2022', 'dd/mm/yy'), 'Botafuego', 'Vitoria', 'Sub17', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('09/12/2022', 'dd/mm/yy'), 'Milan', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('09/12/2022', 'dd/mm/yy'), 'Milan', 'Derrota', 'Sub20', 'Estadio Municipal');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('11/12/2022', 'dd/mm/yy'), 'Boca Juniors', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('11/12/2022', 'dd/mm/yy'), 'Boca Juniors', 'Derrota', 'Sub17', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('15/12/2022', 'dd/mm/yy'), 'Ibis', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('15/12/2022', 'dd/mm/yy'), 'Ibis', 'Derrota', 'Sub17', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('25/12/2022', 'dd/mm/yy'), 'Vasco', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('25/12/2022', 'dd/mm/yy'), 'Vasco', 'Vitoria', 'Sub13', 'Estadio Municipal');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('01/11/2022', 'dd/mm/yy'), 'Internacional', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('01/11/2022', 'dd/mm/yy'), 'Internacional', 'Derrota', 'Sub20', 'Estadio Municipal');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('05/11/2022', 'dd/mm/yy'), 'Cruzeiro', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('05/11/2022', 'dd/mm/yy'), 'Cruzeiro', 'Vitoria', 'Sub13', 'Arena do Povo');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('07/11/2022', 'dd/mm/yy'), 'Afeta o Grêmio', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('07/11/2022', 'dd/mm/yy'), 'Afeta o Grêmio', 'Derrota', 'Sub17', 'Arena do Povo');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('14/11/2022', 'dd/mm/yy'), 'São Paulo', 'Derrota');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('14/11/2022', 'dd/mm/yy'), 'São Paulo', 'Derrota', 'Sub15', 'Estadio Nacional');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('19/11/2022', 'dd/mm/yy'), 'Benfica', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('19/11/2022', 'dd/mm/yy'), 'Benfica', 'Vitoria', 'Sub13', 'Estadio Municipal');
 
-INSERT INTO Partida(Data_Partida, Adversario, Resultado) 
-VALUES (TO_DATE('28/11/2022', 'dd/mm/yy'), 'Ajax', 'Vitoria');
+INSERT INTO Partida(Data_Partida, Adversario, Resultado, Equipe, Estadio) 
+VALUES (TO_DATE('28/11/2022', 'dd/mm/yy'), 'Ajax', 'Vitoria', 'Sub20', 'Arena do Povo');
 
 
 -- Cargos

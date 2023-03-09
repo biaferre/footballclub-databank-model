@@ -50,7 +50,11 @@ CREATE TABLE Partida (
   Data_Partida DATE,
   Adversario VARCHAR2(255) NOT NULL,
   Resultado VARCHAR2(255) NOT NULL,
-  CONSTRAINT Partida_pkey PRIMARY KEY (Data_Partida)
+  Equipe VARCHAR2(5),
+  Estadio VARCHAR2(255),
+  CONSTRAINT Partida_pkey PRIMARY KEY (Data_Partida),
+  CONSTRAINT Partida_fkey1 FOREIGN KEY (Equipe) REFERENCES Equipe (Divisao),
+  CONSTRAINT Partida_fkey2 FOREIGN KEY (Estadio) REFERENCES Estadio (Nome)
 );
 
 CREATE TABLE Cargos (
