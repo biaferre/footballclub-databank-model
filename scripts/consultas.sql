@@ -55,13 +55,15 @@ WHERE E.Aluguel = (SELECT E2.Aluguel FROM Estadio E2
                     INNER JOIN Clube C ON E2.CNPJ_Clube = C.CNPJ
                     WHERE E2.Aluguel > 14000.00);
 
--- UNION: Selecionar o CPF de todos os jogadores que são Laterais (esquerdo ou direito)
-SELECT J.CPF FROM Jogador J
+-- SELECT E3.Aluguel FROM Estadio E3 WHERE E3.Numero = 3;
+
+-- UNION: Selecionar nome e CPF de todos os jogadores que são Laterais (esquerdo ou direito)
+SELECT J.CPF, P.Nome FROM Jogador J
 INNER JOIN Pessoa P ON P.CPF = J.CPF
 INNER JOIN Equipe E ON E.Divisao = J.Equipe_Jogador
 WHERE J.Posicao = 'Lateral Esquerdo'
 UNION
-SELECT J2.CPF FROM Jogador J2
+SELECT J2.CPF, P2.Nome FROM Jogador J2
 INNER JOIN Pessoa P2 ON P2.CPF = J2.CPF
 INNER JOIN Equipe E2 ON E2.Divisao = J2.Equipe_Jogador
 WHERE J2.Posicao = 'Lateral Direito'

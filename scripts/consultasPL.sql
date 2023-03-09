@@ -10,11 +10,12 @@ BEGIN
     WHERE Cl.CPF= CPF AND Cl.Data_venda = Data_Venda
     AND ROWNUM = 1;
 
-    CASE WHEN Loja = '0000' THEN
+    CASE Loja 
+    WHEN '0000' THEN
         resultado := 'Você comprou na loja 1! Gostaríamos muito da sua avaliação. Se possível, deixe um comentário no nosso site! Volte sempre!';
-    WHEN Loja = '0001' THEN
+    WHEN '0001' THEN
         resultado := 'Você comprou na loja 2! Gostaríamos muito da sua avaliação. Se possível, deixe um comentário no nosso site! Volte sempre!';
-    WHEN Loja = '0002' THEN
+    WHEN '0002' THEN
         resultado := 'Você comprou na loja 3! Gostaríamos muito da sua avaliação. Se possível, deixe um comentário no nosso site! Volte sempre!';
     ELSE
         resultado := 'Loja inválida!';
@@ -119,3 +120,71 @@ PROCEDURE new_Estadio(
         END new_Estadio;
 END cadastros;
 
+-- USO DE ESTRUTURA DE DADOS DO TIPO TABLE: Aumenta o valor do aluguel em 10% de todos os estádios, por meio de um cursor iterando sobre os dados e atualizando os valores.
+DECLARE
+  TYPE EstadioTableType IS TABLE OF Estadio%ROWTYPE;
+BEGIN
+      DECLARE
+      cur SYS_REFCURSOR;
+      Nome_Estadio Estadio.Nome%TYPE;
+      Aluguel_Atual Estadio.Aluguel%TYPE;
+      Novo_Aluguel Estadio.Aluguel%TYPE;
+    BEGIN
+      OPEN cur FOR
+        SELECT E.Nome, E.Aluguel
+        FROM Estadio E;
+      
+      LOOP
+        FETCH cur INTO Nome_Estadio, Aluguel_Atual;
+        EXIT WHEN cur%NOTFOUND;
+        
+        Novo_Aluguel := Aluguel_Atual * 1.1; -- Aumenta o aluguel em 10%
+        
+        UPDATE Estadio E2
+        SET E2.Aluguel = Novo_Aluguel
+        WHERE E2.Nome = Nome_Estadio;
+      END LOOP;
+      
+      CLOSE cur;
+    END;
+END;
+
+--SELECT E3.Nome, E3.Aluguel FROM Estadio E3;
+
+-- CREATE OR REPLACE PACKAGE: O código cria um pacote com uma função que retorna um cursor contendo os dados de jogos da tabela "Jogar". Essa função é chamada em um bloco anônimo que itera sobre os registros do cursor e printa os dados.
+
+CREATE OR REPLACE PACKAGE MinhasConsultas AS
+  FUNCTION ConsultarJogar RETURN SYS_REFCURSOR;
+END MinhasConsultas;
+/
+
+CREATE OR REPLACE PACKAGE BODY MinhasConsultas AS
+  FUNCTION ConsultarJogar RETURN SYS_REFCURSOR AS
+    c SYS_REFCURSOR;
+  BEGIN
+    OPEN c FOR
+      SELECT J.Equipe_Jogo, J.Nome_Estadio, J.Data_Jogo
+      FROM Jogar J;
+      
+    RETURN c;
+  END ConsultarJogar;
+END MinhasConsultas;
+/
+DECLARE
+  cur SYS_REFCURSOR;
+  Equipe Jogar.Equipe_Jogo%TYPE;
+  Estadio Jogar.Nome_Estadio%TYPE;
+  Data_Jogo Jogar.Data_Jogo%TYPE;
+BEGIN
+  cur := MinhasConsultas.ConsultarJogar;
+  
+  LOOP
+    FETCH cur INTO Equipe, Estadio, Data_Jogo;
+    EXIT WHEN cur%NOTFOUND;
+    
+    DBMS_OUTPUT.PUT_LINE(Equipe || ' jogou em ' || Estadio || ' no dia ' || Data_Jogo);
+  END LOOP;
+  
+  CLOSE cur;
+END;
+/
