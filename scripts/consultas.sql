@@ -1,7 +1,7 @@
 CREATE INDEX Equipe_Info ON Equipe(Divisao, Modalidade, Liga)
 
 -- Selecione todos os jogadores de um time específico
-SELECT P.Nome, J.Numero, J.Posicao, J.Escalacao FROM Jogador J
+SELECT P.Nome, J.Numero, J.Posicao, J.Escalacao, E.Divisao FROM Jogador J
 INNER JOIN Equipe E ON E.Divisao = J.Equipe_Jogador
 INNER JOIN Pessoa P ON P.CPF = J.CPF 
 WHERE E.Divisao = 'Sub17';
@@ -33,8 +33,8 @@ SELECT AVG(Idade) FROM (
 SELECT COUNT(*) From Cliente_Loja 
 WHERE Preco > 100;
 
--- Selecione todos os funcionários que possuem um supervisor e relate seu nome e o nome do supervisor
-SELECT P.Nome, P2.Nome FROM Pessoa P
+-- Selecione todos os funcionários que possuem um supervisor e relate seu nome (e seu devido CPF) e o nome do supervisor (e seu devido CPF)
+SELECT P.Nome, F.CPF, P2.Nome, F2.CPF FROM Pessoa P
 INNER JOIN Funcionario F ON F.CPF = P.CPF
 INNER JOIN Funcionario F2 ON F.Supervisor = F2.CPF
 INNER JOIN Pessoa P2 ON F2.CPF = P2.CPF
@@ -54,8 +54,11 @@ WHERE E.Aluguel = (SELECT E2.Aluguel FROM Estadio E2
                     INNER JOIN Endereco Ed ON E2.Numero = Ed.Numero AND E2.CEP = Ed.CEP
                     INNER JOIN Clube C ON E2.CNPJ_Clube = C.CNPJ
                     WHERE E2.Aluguel > 14000.00);
-
--- SELECT E3.Aluguel FROM Estadio E3 WHERE E3.Numero = 3;
+SELECT E3.Aluguel, E3.Nome, Ed2.Rua, Ed2.Numero, C2.Nome_clube FROM Estadio E3
+WHERE E3.Aluguel = (SELECT E4.Aluguel FROM Estadio E4
+                    INNER JOIN Endereco Ed2 ON E4.Numero = Ed2.Numero AND E4.CEP = Ed2.CEP
+                    INNER JOIN Clube C2 ON E4.CNPJ_Clube = C2.CNPJ
+                    WHERE E4.Aluguel > 16000.00);
 
 -- UNION: Selecionar nome e CPF de todos os jogadores que são Laterais (esquerdo ou direito)
 SELECT J.CPF, P.Nome FROM Jogador J
