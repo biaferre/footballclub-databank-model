@@ -66,6 +66,12 @@ INNER JOIN Pessoa P2 ON P2.CPF = J2.CPF
 INNER JOIN Equipe E2 ON E2.Divisao = J2.Equipe_Jogador
 WHERE J2.Posicao = 'Lateral Direito'
 
+-- Mostre dados do cliente e compra de todas as compras entre 100 e 200 reais
+SELECT P.Nome, Cl.Fidelidade, Cl.Produto, Cl.Preco, Cl.Forma_pagamento FROM Cliente_Loja Cl
+INNER JOIN Cliente C ON CL.CPF = C.CPF
+INNER JOIN Pessoa P ON P.CPF = C.CPF
+WHERE Cl.Preco BETWEEN (99.99) AND ((199.99));
+
 
 
 
