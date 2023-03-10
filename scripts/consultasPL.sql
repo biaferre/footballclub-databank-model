@@ -1,5 +1,5 @@
--- CREATE FUNCTION / CASE WHEN / SELECT INTO / %TYPE
-CREATE OR REPLACE FUNCTION Avaliar (CPF Cliente_loja.CPF%TYPE, Data_Venda Cliente_loja.Data_venda%TYPE)
+-- CREATE FUNCTION + CASE WHEN + SELECT INTO: Função que recebe o CPF do cliente e a data do pagamento, e retorna uma mensagem de avaliação de acordo com a loja que ele foi.
+CREATE OR REPLACE FUNCTION Avaliar (CP IN Cliente_loja.CPF%TYPE, Data_Venda IN Cliente_loja.Data_venda%TYPE)
 RETURN VARCHAR2
 IS
     Loja Cliente_loja.CNPJ_Loja%TYPE;
@@ -7,8 +7,7 @@ IS
 BEGIN
     SELECT Cl.CNPJ_Loja INTO Loja
     FROM Cliente_loja Cl
-    WHERE Cl.CPF= CPF AND Cl.Data_venda = Data_Venda
-    AND ROWNUM = 1;
+    WHERE Cl.CPF= CP;
 
     CASE Loja 
     WHEN '0000' THEN
