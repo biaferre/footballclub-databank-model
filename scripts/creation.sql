@@ -101,7 +101,7 @@ CREATE TABLE Cliente (
 );
 
 CREATE TABLE Loja (
-  CNPJ VARCHAR2(18), -- mudei para number para usarmos o create sequence
+  CNPJ VARCHAR2(18),
   CEP VARCHAR2(9) NOT NULL,
   Numero NUMBER(4) NOT NULL,
   CONSTRAINT Loja_pkey PRIMARY KEY (CNPJ),
@@ -128,7 +128,6 @@ CREATE TABLE Cliente_loja (
   CONSTRAINT Cliente_loja_fkey2 FOREIGN KEY (ID_Cupom) REFERENCES Cupom(ID)
 );
 
--- precisa ver isso daqui em relação a tabela de partida pq tem o problema
 CREATE TABLE Jogar (
   Equipe_Jogo VARCHAR2(5),
   Nome_Estadio VARCHAR2(255),
