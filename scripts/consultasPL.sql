@@ -120,6 +120,9 @@ PROCEDURE new_Estadio(
         END new_Estadio;
 END cadastros;
 
+-- SELECT * FROM Equipe;
+-- SELECT * FROM Estadio;
+
 -- USO DE ESTRUTURA DE DADOS DO TIPO TABLE: Aumenta o valor do aluguel em 10% de todos os estádios, por meio de um cursor iterando sobre os dados e atualizando os valores.
 DECLARE
   TYPE EstadioTableType IS TABLE OF Estadio%ROWTYPE;
