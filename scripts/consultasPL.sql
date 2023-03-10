@@ -246,7 +246,7 @@ BEGIN
 		END IF;
 	END LOOP;
 END;
-
+-- DEPOIS DE RODAR EXECUTE
 EXECUTE estadios_cidade('Sao Paulo');
 
 
@@ -260,9 +260,9 @@ BEGIN
     	RAISE_APPLICATION_ERROR(-20101, 'Salário não pode ser menor que o salário mínimo: 1302,00');
     END IF;
 END;
-
+-- DEPOIS DE RODAR
 UPDATE Cargos SET Salario = 1200
 WHERE Funcao = 'Massagista';
-
+-- DEPOIS DE TENTAR ATUALIZAR
 SELECT C.Salario FROM Cargos C 
 WHERE C.Funcao = 'Massagista';
