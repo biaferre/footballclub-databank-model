@@ -109,6 +109,8 @@ WHERE ID_Cupom IS NULL;
 INSERT INTO Cliente_loja (Data_venda, Produto, CNPJ_Loja, CPF, ID_Cupom, Forma_pagamento, Preco)
 VALUES (TO_DATE('01/03/2023', 'dd/mm/yy'), 'Short', '0000', '008', 
         (SELECT ID FROM Cupom WHERE Desconto_porcentagem = 20), 'Cartão de credito', 69.99);
+-- SELECT * FROM Cliente_loja
+
 
 -- IN
 -- Mostra a data dos jogos da equipe de Sub20 e Sub13
