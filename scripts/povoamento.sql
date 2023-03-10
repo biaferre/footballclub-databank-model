@@ -296,9 +296,9 @@ INSERT INTO Cliente(CPF, Fidelidade) VALUES ('025', 0);
 
 -- Loja
 CREATE SEQUENCE loja_seq START WITH 1;
-INSERT INTO Loja(CNPJ, CEP, Numero) VALUES ('0000', '51030-400', 1);
-INSERT INTO Loja(CNPJ, CEP, Numero) VALUES ('0001', '02001-000', 2);
-INSERT INTO Loja(CNPJ, CEP, Numero) VALUES ('0002', '03001-000', 3);
+INSERT INTO Loja(CNPJ, CEP, Numero) VALUES (loja_seq.NEXVAL, '51030-400', 1);
+INSERT INTO Loja(CNPJ, CEP, Numero) VALUES (loja_seq.NEXVAL, '02001-000', 2);
+INSERT INTO Loja(CNPJ, CEP, Numero) VALUES (loja_seq.NEXVAL, '03001-000', 3);
 
 -- Cupom
 INSERT INTO Cupom(ID, Desconto_porcentagem) VALUES (1, 10);
