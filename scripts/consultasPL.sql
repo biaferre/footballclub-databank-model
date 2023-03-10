@@ -189,3 +189,80 @@ BEGIN
 END;
 /
 
+-- RECORD, IF
+-- Mostra o percentual de vitória dos jogos contra o Bayer
+DECLARE
+  resultado Partida.Resultado%TYPE;
+	vitorias NUMBER;
+  quantidade_partidas NUMBER;
+	percentual_vitorias DECIMAL (3,2);
+
+CURSOR winrate IS
+SELECT P.resultado FROM Partida P WHERE P.Adversario = 'Bayer';
+
+BEGIN
+vitorias := 0;
+quantidade_partidas := 0;
+
+OPEN winrate;
+	LOOP
+    	FETCH winrate INTO resultado;
+			IF winrate%FOUND THEN
+			quantidade_partidas := quantidade_partidas + 1;
+				IF resultado = 'Vitoria' THEN
+        	    	vitorias := vitorias + 1;
+				END IF;
+			END IF;
+		EXIT WHEN winrate%NOTFOUND;
+	END LOOP;
+CLOSE winrate;
+
+percentual_vitorias := (vitorias/quantidade_partidas);
+dbms_output.put_line('Porcentagem_vitorias: ' || percentual_vitorias*100 || '%');
+
+END;
+
+-- FOR IN LOOP, USO DE PARÂMETROS
+-- Essa procedure fala o nome e a lotacao dos estadios da cidade recebida como entrada
+CREATE OR REPLACE PROCEDURE estadios_cidade(cidade_desejada IN Endereco.Cidade%TYPE)
+IS	
+	CEP Endereco.CEP%type;
+	nome Estadio.Nome%type;
+	lotacao Estadio.Lotacao%type;
+	cidade Endereco.Cidade%TYPE;
+	i INTEGER;
+	x INTEGER;
+
+BEGIN
+	i := 1;
+	SELECT COUNT(*) INTO x FROM Endereco;
+	FOR i IN 1..x LOOP
+		SELECT E.CEP, E.Cidade, EST.Nome, EST.Lotacao INTO CEP, Cidade, Nome, Lotacao
+		FROM Endereco E 
+        LEFT OUTER JOIN Estadio EST ON EST.CEP = E.CEP
+        WHERE E.Numero = i;
+		IF Cidade = cidade_desejada THEN
+			dbms_output.put_line('Nome: ' || Nome || '   Lotacao: ' || Lotacao);
+		END IF;
+	END LOOP;
+END;
+
+EXECUTE estadios_cidade('Sao Paulo');
+
+
+-- CREATE OR REPLACE TRIGGER
+-- Impede que um cargo seja atualizado com salario menor que o salario mínimo.
+CREATE OR REPLACE TRIGGER antes_atualizacao_cargo
+BEFORE UPDATE ON Cargos
+FOR EACH ROW
+BEGIN
+    IF :NEW.Salario < 1302 THEN
+    	RAISE_APPLICATION_ERROR(-20101, 'Salário não pode ser menor que o salário mínimo: 1302,00');
+    END IF;
+END;
+
+UPDATE Cargos SET Salario = 1200
+WHERE Funcao = 'Massagista';
+
+SELECT C.Salario FROM Cargos C 
+WHERE C.Funcao = 'Massagista';

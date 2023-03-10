@@ -103,3 +103,28 @@ WHERE Salario > ANY (SELECT Salario FROM Cargos WHERE Funcao = 'Nutricionista');
 CREATE VIEW view_pagIntegral AS 
 SELECT * FROM Cliente_loja
 WHERE ID_Cupom IS NULL;
+
+-- INSERT INTO
+-- Insere em Cliente_loja uma compra com cupom de 20%
+INSERT INTO Cliente_loja (Data_venda, Produto, CNPJ_Loja, CPF, ID_Cupom, Forma_pagamento, Preco)
+VALUES (TO_DATE('01/03/2023', 'dd/mm/yy'), 'Short', '0000', '008', 
+        (SELECT ID FROM Cupom WHERE Desconto_porcentagem = 20), 'Cartão de credito', 69.99);
+
+-- IN
+-- Mostra a data dos jogos da equipe de Sub20 e Sub13
+SELECT Data_Jogo FROM Jogar J WHERE Equipe_Jogo IN ('Sub20', 'Sub13')
+
+-- RIGHT OUTER JOIN
+-- Mostra a data dos jogos e os produtos vendidos nos dias dos jogos da equipe Sub17 e Sub15
+SELECT Data_Jogo, Produto FROM Cliente_loja C 
+RIGHT OUTER JOIN Jogar J ON C.Data_venda = J.Data_Jogo
+WHERE J.Equipe_Jogo IN('Sub17', 'Sub15')
+
+-- HAVING
+-- Mostra o nome e a quantidade de compras das pessoas que fizeram mais de uma compra
+SELECT Nome, COUNT(*) AS compras_totais 
+FROM Cliente_loja C
+JOIN Pessoa P ON P.CPF = C.CPF
+GROUP BY Nome
+HAVING COUNT(*) > 1;
+
