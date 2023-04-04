@@ -43,9 +43,23 @@ CREATE OR REPLACE TYPE tp_pessoa AS OBJECT (
     sobrenome VARCHAR2 (50),
     telefone tp_varray_telefone,
     MEMBER FUNCTION nome_completo RETURN VARCHAR,
+    MEMBER FUNCTION print_info,
     FINAL MEMBER FUNCTION qntd_telefones RETURN NUMBER
 ) NOT FINAL NOT INSTANTIABLE;
 /
+
+CREATE OR REPLACE TYPE BODY tp_pessoa AS 
+    MEMBER FUNCTION nome_completo RETURN VARCHAR IS
+        BEGIN
+            RETURN  ''||nome||' '||sobrenome;
+        END;
+    MEMBER FUNCTION print_info IS
+        BEGIN
+            DBMS_OUTPUT.PUT_LINE(nome);
+            DBMS_OUTPUT.PUT_LINE(cpf);
+            DBMS_OUTPUT.PUT_LINE(data_nascimento);
+        END;
+END;
 
 -- TIPO  JOGADOR
 CREATE OR REPLACE TYPE tp_jogador UNDER tp_pessoa(
@@ -110,7 +124,8 @@ CREATE OR REPLACE TYPE tp_cargo AS OBJECT (
 CREATE OR REPLACE TYPE tp_funcionario UNDER tp_pessoa (
     supervisor REF tp_funcionario,
     CNPJ REF tp_clube,
-    cargo REF tp_cargo
+    cargo REF tp_cargo,
+    OVERRIDING MEMBER PROCEDURE print_info
 )FINAL;
 /
 
@@ -124,10 +139,12 @@ qntTel NUMBER;
         FROM TABLE(SELF.telefone);
         RETURN quantTel;
     END;
-
-MEMBER FUNCTION nome_completo RETURN VARCHAR IS
-    BEGIN
-        RETURN  ''||nome||' '||sobrenome;
+    OVERRIDING MEMBER PROCEDURE print_info IS
+    BEGIN 
+        DBMS_OUTPUT.PUT_LINE(nome);
+        DBMS_OUTPUT.PUT_LINE(cpf);
+        DBMS_OUTPUT.PUT_LINE(supervisor);
+        DBMS_OUTPUT.PUT_LINE(CNPJ);
     END;
 END;
 /
