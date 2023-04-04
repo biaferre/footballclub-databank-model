@@ -50,7 +50,11 @@ CREATE TABLE Partida (
   Data_Partida DATE,
   Adversario VARCHAR2(255) NOT NULL,
   Resultado VARCHAR2(255) NOT NULL,
-  CONSTRAINT Partida_pkey PRIMARY KEY (Data_Partida)
+  Equipe VARCHAR2(5),
+  Estadio VARCHAR2(255),
+  CONSTRAINT Partida_pkey PRIMARY KEY (Data_Partida),
+  CONSTRAINT Partida_fkey1 FOREIGN KEY (Equipe) REFERENCES Equipe (Divisao),
+  CONSTRAINT Partida_fkey2 FOREIGN KEY (Estadio) REFERENCES Estadio (Nome)
 );
 
 CREATE TABLE Cargos (
@@ -91,39 +95,39 @@ CREATE TABLE Funcionario (
 
 CREATE TABLE Cliente (
   CPF VARCHAR2(14),
+  Fidelidade NUMBER(1),
   CONSTRAINT Cliente_pkey PRIMARY KEY (CPF),
   CONSTRAINT Cliente_fkey FOREIGN KEY (CPF) REFERENCES Pessoa(CPF)
 );
 
 CREATE TABLE Loja (
-  ID NUMBER, -- mudei para number para usarmos o create sequence
+  CNPJ VARCHAR2(18),
   CEP VARCHAR2(9) NOT NULL,
   Numero NUMBER(4) NOT NULL,
-  CONSTRAINT Loja_pkey PRIMARY KEY (ID),
+  CONSTRAINT Loja_pkey PRIMARY KEY (CNPJ),
   CONSTRAINT Loja_fkey FOREIGN KEY (Numero, CEP) REFERENCES Endereco (Numero, CEP)
 );
 
 CREATE TABLE Cupom (
-  Codigo VARCHAR2(6), -- defini que vai ter 6 codigos como cupons da shopee, ifood etc
+  ID NUMBER, 
   Desconto_porcentagem NUMBER NOT NULL,
-  CONSTRAINT Cupom_pkey PRIMARY KEY (Codigo)
+  CONSTRAINT Cupom_pkey PRIMARY KEY (ID)
 );
 
 CREATE TABLE Cliente_loja (
   Data_venda DATE NOT NULL, -- modelo dd/mm/yyyy
   Produto VARCHAR2(255),
-  ID NUMBER,
+  CNPJ_Loja VARCHAR2(18),
   CPF VARCHAR2(14),
-  Codigo VARCHAR2(6),
-  Forma_pagamento VARCHAR2(255) NOT NULL,
+  ID_Cupom NUMBER, 
+  Forma_pagamento VARCHAR2(255) NOT NULL, 
   Preco NUMBER NOT NULL,
-  CONSTRAINT Cliente_loja_primkey PRIMARY KEY (Data_venda, Produto, ID, CPF),
-  CONSTRAINT Cliente_loja_fkey FOREIGN KEY (ID) REFERENCES Loja(ID),
+  CONSTRAINT Cliente_loja_primkey PRIMARY KEY (Data_venda, Produto, CNPJ_Loja, CPF),
+  CONSTRAINT Cliente_loja_fkey FOREIGN KEY (CNPJ_Loja) REFERENCES Loja(CNPJ),
   CONSTRAINT Cliente_loja_fkey1 FOREIGN KEY (CPF) REFERENCES Cliente(CPF),
-  CONSTRAINT Cliente_loja_fkey2 FOREIGN KEY (Codigo) REFERENCES Cupom(CODIGO)
+  CONSTRAINT Cliente_loja_fkey2 FOREIGN KEY (ID_Cupom) REFERENCES Cupom(ID)
 );
 
--- precisa ver isso daqui em relação a tabela de partida pq tem o problema
 CREATE TABLE Jogar (
   Equipe_Jogo VARCHAR2(5),
   Nome_Estadio VARCHAR2(255),
