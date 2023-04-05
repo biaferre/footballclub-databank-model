@@ -331,16 +331,7 @@ INSERT INTO Cliente_loja(Data_venda, Produto, ID, CPF, Codigo, Forma_pagamento, 
 VALUES (TO_DATE('15/02/2023', 'dd/mm/yy'), 'Camiseta', 1, '016', NULL, 'Cartão de Debito', 49.99);
 
 INSERT INTO Cliente_loja(Data_venda, Produto, ID, CPF, Codigo, Forma_pagamento, Preco)
-VALUES (TO_DATE('16/02/2023', 'dd/mm/yy'), 'Tenis', 3, '018', 'ABCD01', 'Cartão de Credito', 199.99);
-
-INSERT INTO Cliente_loja(Data_venda, Produto, ID, CPF, Codigo, Forma_pagamento, Preco)
-VALUES (TO_DATE('25/02/2023', 'dd/mm/yy'), 'Camiseta', 2, '020', 'ABCD01', 'Pix', 49.99);
-
-INSERT INTO Cliente_loja(Data_venda, Produto, ID, CPF, Codigo, Forma_pagamento, Preco)
-VALUES (TO_DATE('24/02/2023', 'dd/mm/yy'), 'Tenis', 1, '018', NULL, 'Pix', 299.99);
-
-INSERT INTO Cliente_loja(Data_venda, Produto, ID, CPF, Codigo, Forma_pagamento, Preco)
-VALUES (TO_DATE('24/03/2023', 'dd/mm/yy'), 'Camiseta', 1, '018', NULL, 'Cartão de Credito', 49.99);
+VALUES (TO_DATE('16/02/2023', 'dd/mm/yy'), 'Tenis', 3, '018', 'ABCD01', 'Cartão de credito', 199.99);
 
 INSERT INTO Cliente_loja(Data_venda, Produto, ID, CPF, Codigo, Forma_pagamento, Preco)
 VALUES (TO_DATE('25/02/2023', 'dd/mm/yy'), 'Camiseta', 2, '020', 'ABCD01', 'Pix', 49.99);
@@ -354,11 +345,6 @@ VALUES (TO_DATE('02/03/2023', 'dd/mm/yy'), 'Camiseta', 3, '021', NULL, 'Pix', 49
 INSERT INTO Cliente_loja(Data_venda, Produto, ID, CPF, Codigo, Forma_pagamento, Preco)
 VALUES (TO_DATE('25/02/2023', 'dd/mm/yy'), 'Tenis', 1, '025', 'EFGH02', 'Pix', 199.99);
 
-INSERT INTO Cliente_loja(Data_venda, Produto, ID, CPF, Codigo, Forma_pagamento, Preco)
-VALUES (TO_DATE('03/03/2023', 'dd/mm/yy'), 'Garrafa', 2, '010', NULL, 'Cartão de Debito', 39.99);
-
-INSERT INTO Cliente_loja(Data_venda, Produto, ID, CPF, Codigo, Forma_pagamento, Preco)
-VALUES (TO_DATE('02/02/2023', 'dd/mm/yy'), 'Camiseta', 2, '023', ABCD01, 'Pix', 49.99);
 
 -- Jogar
 INSERT INTO Jogar(Equipe_Jogo, Nome_Estadio, Data_Jogo)
