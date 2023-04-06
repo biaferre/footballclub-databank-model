@@ -57,27 +57,27 @@ CREATE OR REPLACE TYPE tp_pessoa AS OBJECT(
 /
 
 CREATE OR REPLACE TYPE BODY tp_pessoa AS 
+	MEMBER FUNCTION nome_completo RETURN VARCHAR IS
+    	BEGIN
+        	RETURN  'Nome Completo:'||nome|| ' '|| sobrenome;
+    	END;
 
-    FINAL MAP MEMBER FUNCTION qntd_telefones RETURN NUMBER IS
-    amount NUMBER
-    BEGIN
-        SELECT COUNT(*) INTO amount 
-        FROM TABLE(SELF.telefone);
-        RETURN amount;
-    END;
-    
-    MEMBER FUNCTION nome_completo RETURN VARCHAR IS
-        BEGIN
-            RETURN  ''||nome||' '||sobrenome;
-        END;
-
-    MEMBER PROCEDURE print_info IS
+	MEMBER PROCEDURE print_info IS
         BEGIN
             DBMS_OUTPUT.PUT_LINE(nome);
             DBMS_OUTPUT.PUT_LINE(cpf);
             DBMS_OUTPUT.PUT_LINE(data_nascimento);
         END;
+
+    FINAL MAP MEMBER FUNCTION qntd_telefones RETURN NUMBER IS
+    amount NUMBER;
+    	BEGIN
+        	SELECT COUNT(*) INTO amount
+        	FROM TABLE(SELF.telefone);
+        	RETURN amount;
+    	END;
 END;
+/
 
 -- TIPO ESTÁDIO
 CREATE OR REPLACE TYPE tp_estadio AS OBJECT(
@@ -135,23 +135,6 @@ CREATE OR REPLACE TYPE tp_cliente UNDER tp_pessoa (
 	fidelidade NUMBER(1)
 )FINAL;
 /
-    
--- CORPO DO TIPO CLIENTE
-CREATE OR REPLACE TYPE BODY tp_cliente AS 
-	FINAL MAP MEMBER FUNCTION qntd_telefones RETURN NUMBER IS 
-    qntTel NUMBER;
-    BEGIN
-        SELECT COUNT(*) INTO quantTel
-        FROM TABLE(SELF.telefone);
-        RETURN quantTel;
-    END;
-
-	MEMBER FUNCTION nome_completo RETURN VARCHAR IS
-    BEGIN
-        RETURN  ''||nome||' '||sobrenome;
-    END;
-END;
-/
 
 -- TIPO CLIENTE-LOJA
 CREATE OR REPLACE TYPE tp_cliente_loja AS OBJECT (
@@ -184,21 +167,12 @@ CREATE OR REPLACE TYPE tp_funcionario UNDER tp_pessoa (
 
 -- CORPO DO TIPO FUNCIONARIO
 CREATE OR REPLACE TYPE BODY tp_funcionario AS 
-    
-	FINAL MAP MEMBER FUNCTION qntd_telefones RETURN NUMBER IS
-	qntTel NUMBER;
-    BEGIN
-        SELECT COUNT(*) INTO quantTel
-        FROM TABLE(SELF.telefone);
-        RETURN quantTel;
-    END;
-
     OVERRIDING MEMBER PROCEDURE print_info IS
-    BEGIN 
-        DBMS_OUTPUT.PUT_LINE(nome);
-        DBMS_OUTPUT.PUT_LINE(cpf);
-        DBMS_OUTPUT.PUT_LINE(supervisor);
-        DBMS_OUTPUT.PUT_LINE(CNPJ);
-    END;
+    	BEGIN 
+    		DBMS_OUTPUT.PUT_LINE(nome);
+        	DBMS_OUTPUT.PUT_LINE(cpf);
+        	DBMS_OUTPUT.PUT_LINE(CNPJ);
+        	DBMS_OUTPUT.PUT_LINE(cargo);
+    	END;
 END;
 /

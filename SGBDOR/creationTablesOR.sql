@@ -29,20 +29,6 @@ CREATE TABLE tb_cargo OF tp_cargo(
 );
 /
 
--- TABELA DE JOGADOR
-CREATE TABLE tb_jogador OF tp_jogador(
-    CPF PRIMARY KEY,
-    data_nascimento NOT NULL,
-    nome NOT NULL,
-    sobrenome NOT NULL,
-    telefone NOT NULL,
-    numero NOT NULL,
-    posicao NOT NULL,
-    escalacao NOT NULL,
-    equipe_jogador WITH ROWID REFERENCES tp_equipe NOT NULL
-);
-/
-
 -- TABELA DE FUNCIONARIO
 CREATE TABLE tb_funcionario OF tp_funcionario(
     CPF PRIMARY KEY,
@@ -50,7 +36,7 @@ CREATE TABLE tb_funcionario OF tp_funcionario(
     nome NOT NULL,
     sobrenome NOT NULL,
     telefone NOT NULL,
-    supervisor WITH ROWID REFERENCES tb_funcionario NOT NULL,
+    supervisor WITH ROWID REFERENCES tb_funcionario,
     CNPJ WITH ROWID REFERENCES tb_clube NOT NULL,
     cargo WITH ROWID REFERENCES tb_cargo NOT NULL
 );
@@ -69,15 +55,9 @@ CREATE TABLE tb_cliente OF tp_cliente (
 );
 /
 
--- Tem que rodar o povoamento antes
-SELECT c.qntd_telefones() FROM tb_cliente c WHERE p.nome = 'Felipo'
-SELECT c.nome_completo() FROM tb_cliente c WHERE p.cpf = 1
-
 -- TABELA CLIENTE_LOJA
 CREATE TABLE tb_cliente_loja OF tp_cliente_loja (
-    ID PRIMARY KEY,
-    data_venda NOT NULL,
-    produto NOT NULL,
+    PRIMARY KEY(data_venda, produto),
     forma_pagamento NOT NULL,
     preco NOT NULL,
     ID_cupom WITH ROWID REFERENCES tb_cupom NOT NULL,
@@ -85,3 +65,43 @@ CREATE TABLE tb_cliente_loja OF tp_cliente_loja (
     CPF_cliente WITH ROWID REFERENCES tb_cliente NOT NULL
 );
 /
+
+-- TABELA EQUIPE
+CREATE TABLE tb_equipe OF tp_equipe(
+    Divisao PRIMARY KEY,
+    Modalidade NOT NULL,
+    Liga NOT NULL,
+    cnpj_clube SCOPE IS tb_clube
+)NESTED TABLE jogadores STORE AS jogadores_equipe;
+/
+
+-- ESTADIO
+CREATE TABLE tb_estadio OF tp_estadio(
+    nome PRIMARY KEY,
+    aluguel NOT NULL,
+    lotacao NOT NULL,
+    endereco NOT NULL,
+    cnpj_clube WITH ROWID REFERENCES tb_clube NOT NULL
+);
+/
+
+-- PARTIDA
+CREATE TABLE tb_partida OF tp_partida(
+    data_partida PRIMARY KEY,
+    adversario NOT NULL,
+    resultado NOT NULL,
+    equipe WITH ROWID REFERENCES tb_equipe NOT NULL,
+    estadio WITH ROWID REFERENCES tb_estadio NOT NULL
+);
+/
+    
+-- TABELA JOGAR
+CREATE TABLE tb_jogar OF tp_jogar (
+    equipe_jogo WITH ROWID REFERENCES tb_equipe NOT NULL,
+    nome_estadio WITH ROWID REFERENCES tb_estadio NOT NULL,
+    data_jogo WITH ROWID REFERENCES tb_partida NOT NULL
+);
+
+-- Tem que rodar o povoamento antes
+SELECT c.qntd_telefones() FROM tb_cliente c WHERE p.nome = 'Felipo'
+SELECT c.nome_completo() FROM tb_cliente c WHERE p.cpf = 1

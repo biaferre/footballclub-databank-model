@@ -20,13 +20,12 @@ INSERT INTO tb_clube VALUES (
         )
     )
 );
-
 /
 
 -- POVOAMENTO EQUIPE
 INSERT INTO tb_equipe VALUES (
     tp_equipe(
-        'sub17',
+        'sub20',
         'Masculino',
         'Liga das Americas', 
         (SELECT REF(E) FROM tb_clube E WHERE E.CNPJ = '150319'),
@@ -36,25 +35,24 @@ INSERT INTO tb_equipe VALUES (
                 to_date('30/03/1974', 'dd/mm/yy'),
                 'Pablo', 
                 'Antunes',
-                '10',
+    			tp_varray_telefone(tp_telefone('82797556')),
+                10,
                 'Zagueiro',
-                'Reserva',
-                (SELECT REF(E) FROM tb_equipe E WHERE E.divisao = 'sub17')
+                'Reserva'
             ),
             tp_jogador(
                 '005',
                 to_date('30/03/1974', 'dd/mm/yy'),
                 'lusca', 
                 'peao',
-                '60',
+    			tp_varray_telefone(tp_telefone('82797553')),
+                60,
                 'atacante',
-                'Titular',
-                (SELECT REF(E) FROM tb_equipe E WHERE E.divisao = 'sub17')
+                'Titular'
             )
         )
     )
 );
-
 /
 
 INSERT INTO tb_equipe VALUES (
@@ -62,10 +60,10 @@ INSERT INTO tb_equipe VALUES (
         'sub15',
         'Feminino',
         'Nordestão', 
-        (SELECT REF(E) FROM tb_clube E WHERE E.CNPJ = '150319')
+        (SELECT REF(E) FROM tb_clube E WHERE E.CNPJ = '150319'),
+    	tp_nt_jogadores()
     )
 );
-
 /
 
 -- POVOAMENTO ESTADIO
@@ -80,11 +78,10 @@ INSERT INTO tb_estadio VALUES (
             'Rua da Varzea'
         ),     
   	    (SELECT REF(E) FROM tb_clube E WHERE E.CNPJ = '150319'),      
-  	    20000,00,
+  	    20000.00,
         100000
     )
 );
-
 /
 
 -- POVOAMENTO PARTIDA
@@ -105,7 +102,7 @@ INSERT INTO tb_jogar VALUES (
     tp_jogar(
         (SELECT REF(E) FROM tb_equipe E WHERE E.divisao = 'sub15'),     
   	    (SELECT REF(E) FROM tb_estadio E WHERE E.nome = 'Arena da Várzea'),     
-  	    (SELECT REF(E) FROM tb_partida E WHERE E.data_jogo = '18/03/2023')
+  	    (SELECT REF(E) FROM tb_partida E WHERE E.data_partida = to_date('18/03/2023', 'dd/mm/yy'))
     )
 );
 
@@ -116,12 +113,10 @@ INSERT INTO tb_cliente VALUES (
         to_date('18/06/1992', 'dd/mm/yy'),
         'Rogério', 
         'Gouveia',
-        tp_varray_telefone(tp_telefone('81900000001'), tp_telefone('81900000011')),
-        '0'
+        tp_varray_telefone(tp_telefone('8190000000'), tp_telefone('8190000001')),
+        0
     )
-
 );
-
 /
 
 INSERT INTO tb_cliente VALUES (
@@ -130,89 +125,79 @@ INSERT INTO tb_cliente VALUES (
         to_date('16/02/1999', 'dd/mm/yy'),
         'Fabricia',
         'Galeão',
-        tp_varray_telefone(tp_telefone('81900000002')),
-        '1'
+        tp_varray_telefone(tp_telefone('8190000002')),
+        1
     )
-
 );
-
 /
 
 -- POVOAMENTO CARGO
 INSERT INTO tb_cargo VALUES (
     tp_cargo(
         'Treinador',
-        6500,00
+        6500.00
     )
-
 );
-
 /
 
 INSERT INTO tb_cargo VALUES (
     tp_cargo(
         'Chefe',
-        10000,00
+        10000.00
     )
-
 );
-
 /
 
 -- POVOAMENTO FUNCIONÁRIO
 INSERT INTO tb_funcionario VALUES (
     tp_funcionario(
-        '007'
-        to_date('21/02/1992', 'dd/mm/yy'),
-        'Patricia'
-        'Costa'
-        tp_varray_telefone(tp_telefone('81900000009')),
-        (SELECT REF(E) FROM tb_funcionario E WHERE E.CPF = '008'),
-        (SELECT REF(E) FROM tb_clube E WHERE E.CNPJ = '150319'), 
-        (SELECT REF(E) FROM tb_cargo E WHERE E.FUNCAO = 'Treinador') 
-    )
-
-);
-
-/
-
-INSERT INTO tb_funcionario VALUES (
-    tp_funcionario(
-        '008'
+        '008',
         to_date('21/06/1988', 'dd/mm/yy'),
-        'Chefe'
-        'Chefinho'
-        tp_varray_telefone(tp_telefone('81900000012')),
+        'Chefe',
+        'Chefinho',
+        tp_varray_telefone(tp_telefone('8190000004')),
+    	NULL,
         (SELECT REF(E) FROM tb_clube E WHERE E.CNPJ = '150319'), 
         (SELECT REF(E) FROM tb_cargo E WHERE E.FUNCAO = 'Chefe')
     )
 );
-
+/
+    
+INSERT INTO tb_funcionario VALUES (
+    tp_funcionario(
+        '007',
+        to_date('21/02/1992', 'dd/mm/yy'),
+        'Patricia',
+        'Costa',
+        tp_varray_telefone(tp_telefone('8190000009')),
+        (SELECT REF(E) FROM tb_funcionario E WHERE E.CPF = '008'),
+        (SELECT REF(E) FROM tb_clube E WHERE E.CNPJ = '150319'), 
+        (SELECT REF(E) FROM tb_cargo E WHERE E.FUNCAO = 'Treinador') 
+    )
+);
 /
 
 -- POVOAMENTO CUPOM
 INSERT INTO tb_cupom VALUES (
     tp_cupom(
-        codigo.NEXTVAL,
+        ID.NEXTVAL,
         10
     )
 );
-
 /
 
 INSERT INTO tb_cupom VALUES (
     tp_cupom(
-        codigo.NEXTVAL,
+        ID.NEXTVAL,
         15
     )
 );
-
 /
 
 -- POVOAMENTO LOJA
 INSERT INTO tb_loja VALUES (
     tp_loja(
-        '222334'
+        '222334',
         tp_endereco(
             51,
             '33',
@@ -222,5 +207,12 @@ INSERT INTO tb_loja VALUES (
         )
     )
 );
-
 /
+
+    
+-- TESTE DO BODY DE PESSOA
+SELECT c.qntd_telefones() FROM tb_cliente c WHERE c.nome = 'Rogério'
+SELECT c.nome_completo() FROM tb_cliente c WHERE c.cpf = '001'
+
+
+
