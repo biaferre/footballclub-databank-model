@@ -29,4 +29,16 @@ SELECT E.Nome,
     E.Endereco.Rua AS Rua 
     FROM tb_estadio E;
 
+-- Exibe o valor do ID e do desconto em porcentagem de todos os cupons
+SELECT ID, c.id_cupom(), c.desconto() FROM tb_cupom c;
 
+-- Diferença entre o salário de cada cargo e a média salarial
+SELECT 
+    c.FUNCAO,
+    c.salario,
+    (c.salario - media_salarios) AS diferenca
+FROM 
+    tb_cargo c,
+    (SELECT AVG(salario) AS media_salarios FROM tb_cargo) m
+ORDER BY 
+    diferenca DESC;
