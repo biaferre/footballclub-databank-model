@@ -94,3 +94,8 @@ FROM
     (SELECT AVG(salario) AS media_salarios FROM tb_cargo) m
 ORDER BY 
     diferenca DESC;
+
+
+-- Associação funcionário - clube e seu cargo
+SELECT DEREF(F.CNPJ).nome_clube AS Clube, DEREF(F.cargo).funcao AS Cargo, F.nome_completo() AS Nome FROM tb_funcionario F
+
