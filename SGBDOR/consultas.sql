@@ -84,4 +84,13 @@ SELECT c.nome ,c.qntd_telefones() AS QNT_Telefones FROM tb_cliente c WHERE c.nom
 -- Seleciona o nome completo do cliente
 SELECT c.nome_completo() AS Nome_completo FROM tb_cliente c WHERE c.cpf = '001'
 
-
+-- Diferença entre o salário de cada cargo e a média salarial
+SELECT 
+    c.FUNCAO,
+    c.salario,
+    (c.salario - media_salarios) AS diferenca
+FROM 
+    tb_cargo c,
+    (SELECT AVG(salario) AS media_salarios FROM tb_cargo) m
+ORDER BY 
+    diferenca DESC;
