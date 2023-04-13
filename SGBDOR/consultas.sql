@@ -105,5 +105,6 @@ SELECT DEREF(equipe_jogo).divisao AS Equipe,
        DEREF(data_jogo).adversario AS Adversario, 
        DEREF(data_jogo).resultado AS Resultado FROM tb_jogar;
 
--- 
-
+-- Some quanto uma loja especifica faturou
+SELECT SUM(Preco) FROM tb_cliente_loja 
+WHERE DEREF(CNPJ_Loja).CNPJ = '222334';
