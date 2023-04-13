@@ -108,3 +108,7 @@ SELECT DEREF(equipe_jogo).divisao AS Equipe,
 -- Some quanto uma loja especifica faturou
 SELECT SUM(Preco) FROM tb_cliente_loja 
 WHERE DEREF(CNPJ_Loja).CNPJ = '222334';
+
+-- Consulta do nome e o número de telefones de todos os funcionários
+SELECT f.CPF AS cpf, f.nome_completo() AS nome, f.qntd_telefones() AS qtd_telefones
+FROM tb_funcionario f
