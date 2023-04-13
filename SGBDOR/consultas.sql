@@ -99,3 +99,11 @@ ORDER BY
 -- Associação funcionário - clube e seu cargo
 SELECT DEREF(F.CNPJ).nome_clube AS Clube, DEREF(F.cargo).funcao AS Cargo, F.nome_completo() AS Nome FROM tb_funcionario F
 
+-- Pegar todas as informações de todos os jogos existentes
+SELECT DEREF(equipe_jogo).divisao AS Equipe, 
+       DEREF(nome_estadio).nome AS Estadio, 
+       DEREF(data_jogo).adversario AS Adversario, 
+       DEREF(data_jogo).resultado AS Resultado FROM tb_jogar;
+
+-- 
+
