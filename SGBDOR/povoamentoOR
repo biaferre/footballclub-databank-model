@@ -209,6 +209,7 @@ INSERT INTO tb_loja VALUES (
 );
 /
 
+--POVOAMENTO CLIENTE-LOJA
 INSERT INTO tb_cliente_loja VALUES (
     tp_cliente_loja(
     null,
