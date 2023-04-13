@@ -3,11 +3,9 @@ CREATE OR REPLACE TYPE tp_telefone AS OBJECT (
     telefone VARCHAR(10)
 );
 /
-
 -- TIPO ARRAY DE TELEFONES
 CREATE OR REPLACE TYPE tp_varray_telefone AS VARRAY(5) OF tp_telefone;
 /
-
 -- TIPO ENDERECO
 CREATE OR REPLACE TYPE tp_endereco AS OBJECT(
     numero NUMBER(4),
@@ -17,7 +15,6 @@ CREATE OR REPLACE TYPE tp_endereco AS OBJECT(
     rua VARCHAR2(50)
 )FINAL;
 /
-
 -- TIPO CLUBE
 CREATE OR REPLACE TYPE tp_clube AS OBJECT(
     CNPJ VARCHAR2(18),     
@@ -26,29 +23,27 @@ CREATE OR REPLACE TYPE tp_clube AS OBJECT(
   	endereco tp_endereco
 )FINAL;
 /
-
 -- TIPO CUPOM
 CREATE OR REPLACE TYPE tp_cupom AS OBJECT (
   ID NUMBER,
   Desconto_porcentagem NUMBER,
   MEMBER FUNCTION id_cupom RETURN NUMBER,
   MEMBER FUNCTION desconto RETURN NUMBER
-)FINAL;
-/
+ )FINAL;
+ /
 
-CREATE OR REPLACE TYPE BODY tp_cupom AS 
-  MEMBER FUNCTION id_cupom RETURN NUMBER IS
-  BEGIN
-    RETURN ID;
-  END;
-  
-  MEMBER FUNCTION desconto RETURN NUMBER IS
-  BEGIN
-    RETURN Desconto_porcentagem;
-  END;
-END;
-/
+ CREATE OR REPLACE TYPE BODY tp_cupom AS 
+   MEMBER FUNCTION id_cupom RETURN NUMBER IS
+   BEGIN
+     RETURN ID;
+   END;
 
+   MEMBER FUNCTION desconto RETURN NUMBER IS
+   BEGIN
+     RETURN Desconto_porcentagem;
+   END;
+ END;
+ /
 
 -- TIPO LOJA
 CREATE OR REPLACE TYPE tp_loja AS OBJECT (
@@ -73,16 +68,14 @@ CREATE OR REPLACE TYPE tp_pessoa AS OBJECT(
 CREATE OR REPLACE TYPE BODY tp_pessoa AS 
 	MEMBER FUNCTION nome_completo RETURN VARCHAR IS
     	BEGIN
-        	RETURN  'Nome Completo:'||nome|| ' '|| sobrenome;
+        	RETURN  ''||nome|| ' '|| sobrenome;
     	END;
-
 	MEMBER PROCEDURE print_info IS
         BEGIN
             DBMS_OUTPUT.PUT_LINE(nome);
             DBMS_OUTPUT.PUT_LINE(cpf);
             DBMS_OUTPUT.PUT_LINE(data_nascimento);
         END;
-
     FINAL MAP MEMBER FUNCTION qntd_telefones RETURN NUMBER IS
     amount NUMBER;
     	BEGIN
@@ -125,7 +118,6 @@ CREATE OR REPLACE TYPE tp_equipe AS OBJECT(
 )FINAL;
 /
 
-
 -- TIPO PARTIDA
 CREATE OR REPLACE TYPE tp_partida AS OBJECT(
     data_partida DATE,
@@ -135,7 +127,6 @@ CREATE OR REPLACE TYPE tp_partida AS OBJECT(
     estadio REF tp_estadio
 )FINAL;
 /
-
 -- TIPO JOGAR
 CREATE OR REPLACE TYPE tp_jogar AS OBJECT(
     equipe_jogo REF tp_equipe,
@@ -149,7 +140,6 @@ CREATE OR REPLACE TYPE tp_cliente UNDER tp_pessoa (
 	fidelidade NUMBER(1)
 )FINAL;
 /
-
 -- TIPO CLIENTE-LOJA
 CREATE OR REPLACE TYPE tp_cliente_loja AS OBJECT (
     ID NUMBER(5),
@@ -162,14 +152,12 @@ CREATE OR REPLACE TYPE tp_cliente_loja AS OBJECT (
     CNPJ_loja REF tp_loja
 );
 /
-
 -- TIPO CARGO
 CREATE OR REPLACE TYPE tp_cargo AS OBJECT (
     FUNCAO VARCHAR2(18),
     salario DECIMAL(10,2)
 )FINAL;
 /
-
 -- TIPO FUNCIONARIO
 CREATE OR REPLACE TYPE tp_funcionario UNDER tp_pessoa (
     supervisor REF tp_funcionario,
@@ -178,7 +166,6 @@ CREATE OR REPLACE TYPE tp_funcionario UNDER tp_pessoa (
     OVERRIDING MEMBER PROCEDURE print_info
 )FINAL;
 /
-
 -- CORPO DO TIPO FUNCIONARIO
 CREATE OR REPLACE TYPE BODY tp_funcionario AS 
     OVERRIDING MEMBER PROCEDURE print_info IS

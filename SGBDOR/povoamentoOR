@@ -360,11 +360,3 @@ INSERT INTO tb_loja VALUES (
 
 -- POVOAMENTO CLIENTE-LOJA
 
-
-    
--- TESTE DO BODY DE PESSOA
-SELECT c.qntd_telefones() FROM tb_cliente c WHERE c.nome = 'Rogério'
-SELECT c.nome_completo() FROM tb_cliente c WHERE c.cpf = '001'
-
-
-

@@ -101,7 +101,3 @@ CREATE TABLE tb_jogar OF tp_jogar (
     nome_estadio WITH ROWID REFERENCES tb_estadio NOT NULL,
     data_jogo WITH ROWID REFERENCES tb_partida NOT NULL
 );
-
--- Tem que rodar o povoamento antes
-SELECT c.qntd_telefones() FROM tb_cliente c WHERE p.nome = 'Felipo'
-SELECT c.nome_completo() FROM tb_cliente c WHERE p.cpf = 1
