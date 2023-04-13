@@ -79,10 +79,10 @@ SELECT E.Nome,
 
 -- TESTE DO BODY DE PESSOA
 -- Seleciona a quantidade de telefones de um cliente
-SELECT c.nome ,c.qntd_telefones() AS QNT_Telefones FROM tb_cliente c WHERE c.nome = 'Rogério'
+SELECT c.nome ,c.qntd_telefones() AS QNT_Telefones FROM tb_cliente c WHERE c.nome = 'Rogério';
 
 -- Seleciona o nome completo do cliente
-SELECT c.nome_completo() AS Nome_completo FROM tb_cliente c WHERE c.cpf = '001'
+SELECT c.nome_completo() AS Nome_completo FROM tb_cliente c WHERE c.cpf = '001';
 
 -- Diferença entre o salário de cada cargo e a média salarial
 SELECT 
