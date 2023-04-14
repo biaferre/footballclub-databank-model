@@ -112,3 +112,13 @@ WHERE DEREF(CNPJ_Loja).CNPJ = '222334';
 -- Consulta do nome e o número de telefones de todos os funcionários
 SELECT f.CPF AS cpf, f.nome_completo() AS nome, f.qntd_telefones() AS qtd_telefones
 FROM tb_funcionario f
+
+-- USO DO OVERRIDING PROCEDURE print_info() DE FUNCIONARIO
+DECLARE
+func tp_funcionario;
+BEGIN
+SELECT VALUE(f) INTO func FROM tb_funcionario f
+WHERE f.cpf = '007';
+func.print_info();
+END;
+/

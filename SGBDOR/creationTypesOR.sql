@@ -74,7 +74,6 @@ CREATE OR REPLACE TYPE BODY tp_pessoa AS
         BEGIN
             DBMS_OUTPUT.PUT_LINE(nome);
             DBMS_OUTPUT.PUT_LINE(cpf);
-            DBMS_OUTPUT.PUT_LINE(data_nascimento);
         END;
     FINAL MAP MEMBER FUNCTION qntd_telefones RETURN NUMBER IS
     amount NUMBER;
@@ -166,14 +165,22 @@ CREATE OR REPLACE TYPE tp_funcionario UNDER tp_pessoa (
     OVERRIDING MEMBER PROCEDURE print_info
 )FINAL;
 /
+
 -- CORPO DO TIPO FUNCIONARIO
 CREATE OR REPLACE TYPE BODY tp_funcionario AS 
     OVERRIDING MEMBER PROCEDURE print_info IS
-    	BEGIN 
-    		DBMS_OUTPUT.PUT_LINE(nome);
-        	DBMS_OUTPUT.PUT_LINE(cpf);
-        	DBMS_OUTPUT.PUT_LINE(CNPJ);
-        	DBMS_OUTPUT.PUT_LINE(cargo);
+    	cnpj_teste VARCHAR2(255);
+		funcao VARCHAR2(255);
+		nome_supervisor VARCHAR2(255);
+		cpf_usar VARCHAR2(255);
+    	BEGIN
+            cpf_usar := cpf;
+			SELECT DEREF(F.CNPJ).CNPJ INTO cnpj_teste FROM tb_funcionario F WHERE F.cpf = cpf_usar;
+			SELECT DEREF(F.Cargo).funcao INTO funcao FROM tb_funcionario F WHERE F.cpf = cpf_usar;
+            SELECT DEREF(F.supervisor).nome INTO nome_supervisor FROM tb_funcionario F WHERE F.cpf = cpf_usar;
+            DBMS_OUTPUT.PUT_LINE('nome: ' || nome || '; cpf: ' || cpf);
+			DBMS_OUTPUT.PUT_LINE('supervisor: ' || nome_supervisor || '; clube: ' || cnpj_teste || '; cargo: ' || funcao);
+
     	END;
 END;
 /
